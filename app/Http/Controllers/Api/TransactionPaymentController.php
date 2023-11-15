@@ -38,7 +38,7 @@ class TransactionPaymentController extends Controller
      */
     public function show(TransactionPayment $transactionPayment)
     {
-        //
+        return $transactionPayment;
     }
 
     /**

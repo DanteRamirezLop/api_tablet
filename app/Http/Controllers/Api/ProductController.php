@@ -36,8 +36,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        $jq_category = Product::included()->findOrFail($product->id);
-        return $jq_category;
+        return $product;
     }
 
     /**
