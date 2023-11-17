@@ -3,25 +3,24 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\TransactionPayment;
+use App\Models\TaxRate;
 use Illuminate\Http\Request;
 
-class TransactionPaymentController extends Controller
+class TaxRateController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth:api');
+       
+    }
     /**
      * Display a listing of the resource.
      */
-
-     public function __construct()
-     {
-         $this->middleware('auth:api');
-        
-     }
-     
     public function index()
     {
-        $transaction = TransactionPayment::all();
-        return $transaction;
+        $tax = TaxRate::all();
+        return $tax;
     }
 
     /**
@@ -35,15 +34,15 @@ class TransactionPaymentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(TransactionPayment $transactionPayment)
+    public function show(TaxRate $taxRate)
     {
-        return $transactionPayment;
+        //
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, TransactionPayment $transactionPayment)
+    public function update(Request $request, TaxRate $taxRate)
     {
         //
     }
@@ -51,7 +50,7 @@ class TransactionPaymentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(TransactionPayment $transactionPayment)
+    public function destroy(TaxRate $taxRate)
     {
         //
     }
