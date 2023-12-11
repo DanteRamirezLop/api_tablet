@@ -42,6 +42,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+
+        $product->put('picture', config('services.trading.url').'/uploads/img/'.$product->image);
         return $product;
         
     }
