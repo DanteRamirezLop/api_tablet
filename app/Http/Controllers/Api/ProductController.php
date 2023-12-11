@@ -18,10 +18,16 @@ class ProductController extends Controller
         
      }
      
-    public function index()
-    {
-        return Product::all();
-    }
+     public function index()
+     {
+         //return Product::all();
+         $products = Product::all();
+         $products->map(function($item, $key) {
+             $item->price = 50;
+             $item->picture = config('services.trading.url').'/uploads/img/'.$item->image;
+         });
+         return $products;
+     }
 
     /**
      * Store a newly created resource in storage.
