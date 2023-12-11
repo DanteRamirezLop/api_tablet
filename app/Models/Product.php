@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use  Illuminate\Database\Eloquent\Builder;
 
 class Product extends Model
 {
@@ -17,6 +18,12 @@ class Product extends Model
     "created_by",
     "preparation_time_in_minutes",
     "is_inactive",
-    "repair_model_id",];
-    // protected $guarded = ['id','created_at','updated_at'];
+    "repair_model_id"];
+
+    protected static function booted()
+    {
+        static::addGlobalScope('only_bussines',function(Builder $builder){
+            $builder->where('business_id',8);
+        });
+    }
 }
