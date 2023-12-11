@@ -43,8 +43,9 @@ class ProductController extends Controller
     public function show(Product $product)
     {
 
-        $product->put('picture', config('services.trading.url').'/uploads/img/'.$product->image);
-        return response()->json($product);
+        $product->picture = config('services.trading.url').'/uploads/img/'.$product->image;
+        $product->price = $product->variation->first()->sell_price_inc_tax;
+        return $product;
 
     }
 
