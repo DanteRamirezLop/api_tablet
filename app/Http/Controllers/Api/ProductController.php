@@ -45,7 +45,7 @@ class ProductController extends Controller
 
         $product->put('picture', config('services.trading.url').'/uploads/img/'.$product->image);
         return response()->json($product);
-        
+
     }
 
     /**
