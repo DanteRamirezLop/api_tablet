@@ -23,7 +23,7 @@ class ProductController extends Controller
          //return Product::all();
          $products = Product::all();
          $products->map(function($item, $key) {
-             $item->price = 50;
+             $item->price = $item->variation->first()->sell_price_inc_tax;
              $item->picture = config('services.trading.url').'/uploads/img/'.$item->image;
          });
          return $products;

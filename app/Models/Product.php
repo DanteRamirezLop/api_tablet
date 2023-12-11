@@ -26,4 +26,9 @@ class Product extends Model
             $builder->where('business_id',8);
         });
     }
+
+    //relacion uno a muchos
+    public function variation(){
+        return $this->hasMany(Variation::class);
+    }
 }
