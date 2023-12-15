@@ -7,11 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use  Illuminate\Database\Eloquent\Builder;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    protected static function booted()
+    {
+        static::addGlobalScope('only_bussines',function(Builder $builder){
+            $builder->where('business_id',8);
+        });
+    }
     /**
      * The attributes that are mass assignable.
      *
