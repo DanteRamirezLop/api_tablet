@@ -13,12 +13,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    protected static function booted()
-    {
-        static::addGlobalScope('only_bussines',function(Builder $builder){
-            $builder->where('business_id',8);
-        });
-    }
+   
     /**
      * The attributes that are mass assignable.
      *
