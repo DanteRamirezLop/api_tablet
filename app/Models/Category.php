@@ -9,7 +9,7 @@ use  Illuminate\Database\Eloquent\Builder;
 class Category extends Model
 {
     use HasFactory;
-    protected $guarded = ['id','created_at','updated_at'];
+    protected $fillable = ['id','name','business_id','parent_id','created_by','category_type','slug'];
 
     protected static function booted()
     {
