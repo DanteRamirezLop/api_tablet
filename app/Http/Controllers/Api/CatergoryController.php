@@ -33,14 +33,11 @@ class CatergoryController extends Controller
                 'name' => 'required|max:255',
                 'slug' => 'required|max:255|unique:categories',
             ]);
-    
             $category = Category::create($request->all());
             return $category;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
-        
-        
     }
 
     /**
@@ -64,6 +61,7 @@ class CatergoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return "Categoria Eliminada";
     }
 }
