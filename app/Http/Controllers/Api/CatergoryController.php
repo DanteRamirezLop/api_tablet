@@ -28,6 +28,12 @@ class CatergoryController extends Controller
      */
     public function store(Request $request)
     {
+
+        $request->validate([
+            'name' => 'required|max:255',
+            'slug' => 'required|max:255|unique:categories',
+        ]);
+
         $category = Category::create($request->all());
         return $category;
     }
