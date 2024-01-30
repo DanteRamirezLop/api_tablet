@@ -38,7 +38,17 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'name' => 'required|max:255',
+                'guard_name' => 'required',
+                'business_id ' => 'required',
+            ]);
+            $role = Role::create($request->all());
+            return $role;
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
     /**
