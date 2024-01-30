@@ -37,6 +37,9 @@ class ProductController extends Controller
         try {
             $request->validate([
                 'name' => 'required|max:255',
+                'business_id' => 'required',
+                'sku' => 'required',
+                'created_by' => 'required',
             ]);
             $product = Product::create($request->all());
             return $product;
