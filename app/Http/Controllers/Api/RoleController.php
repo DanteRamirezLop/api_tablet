@@ -42,7 +42,7 @@ class RoleController extends Controller
             $request->validate([
                 'name' => 'required|max:255',
                 'guard_name' => 'required',
-                'business_id ' => 'required',
+                'business_id' => 'required',
             ]);
             $role = Role::create($request->all());
             return $role;
