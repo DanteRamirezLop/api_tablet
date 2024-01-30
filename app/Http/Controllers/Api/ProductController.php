@@ -34,7 +34,16 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $request->validate([
+                'name' => 'required|max:255',
+                'slug' => 'required|max:255|unique:categories',
+            ]);
+            $product = Product::create($request->all());
+            return $product;
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
     }
 
     /**
