@@ -37,7 +37,6 @@ class ProductController extends Controller
         try {
             $request->validate([
                 'name' => 'required|max:255',
-                'slug' => 'required|max:255|unique:categories',
             ]);
             $product = Product::create($request->all());
             return $product;
