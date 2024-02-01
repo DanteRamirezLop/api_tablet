@@ -32,7 +32,7 @@ class Product extends Model
         return $this->hasMany(Variation::class);
     }
 
-    public function resproductmodifiersets(){
+    public function resProductModifierSets(){
         return $this->hasMany(ResProductModifierSets::class);
     }
 }
