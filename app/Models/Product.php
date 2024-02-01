@@ -31,4 +31,8 @@ class Product extends Model
     public function variation(){
         return $this->hasMany(Variation::class);
     }
+
+    public function resproductmodifiersets(){
+        return $this->hasMany(ResProductModifierSets::class);
+    }
 }
