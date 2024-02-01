@@ -33,6 +33,6 @@ class Product extends Model
     }
 
     public function resProductModifierSets(){
-        return $this->hasMany(ResProductModifierSets::class, "modifier_set_id");
+        return $this->hasMany(ResProductModifierSets::class);
     }
 }
