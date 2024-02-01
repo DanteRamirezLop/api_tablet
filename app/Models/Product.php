@@ -28,11 +28,11 @@ class Product extends Model
     }
 
     //relacion uno a muchos
-    // public function variation(){
-    //     return $this->hasMany(Variation::class);
-    // }
+    public function variation(){
+        return $this->hasMany(Variation::class);
+    }
 
-    // public function resProductModifierSets(){
-    //     return $this->hasMany(ResProductModifierSets::class);
-    // }
+    public function resProductModifierSets(){
+        return $this->belongsTo(ResProductModifierSets::class);
+    }
 }
