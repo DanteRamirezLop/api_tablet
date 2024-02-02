@@ -32,7 +32,20 @@ class Product extends Model
         return $this->hasMany(Variation::class);
     }
 
-    public function resProductModifierSets(){
-        return $this->belongsToMany(ResProductModifierSets::class, "modifier_set_id");
+    public function modifier_products()
+    {
+        return $this->belongsToMany(Product::class, 'res_product_modifier_sets', 'modifier_set_id', 'product_id');
     }
+
+    /**
+     * If product type is modifier get products associated with it.
+     */
+    public function modifier_sets()
+    {
+        return $this->belongsToMany(Product::class, 'res_product_modifier_sets', 'product_id', 'modifier_set_id');
+    }
+
+    // public function resProductModifierSets(){
+    //     return $this->hasMany(ResProductModifierSets::class, "modifier_set_id");
+    // }
 }

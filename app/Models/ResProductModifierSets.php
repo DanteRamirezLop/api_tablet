@@ -11,9 +11,9 @@ class ResProductModifierSets extends Model
     protected $table = 'res_product_modifier_sets';
     protected $fillable = [ "modifier_set_id","product_id"];
 
-    public function product()
-    {
-        return $this->belongsToMany(Product::class);
-    }
+    // public function product()
+    // {
+    //     return $this->belongsTo(Product::class);
+    // }
     
 }
