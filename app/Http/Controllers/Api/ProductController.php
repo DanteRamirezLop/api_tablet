@@ -25,6 +25,7 @@ class ProductController extends Controller
          $products->map(function($item, $key) {
              $item->price = $item->variation->first()->sell_price_inc_tax;
              $item->picture = config('services.trading.url').'/uploads/img/'.$item->image;
+             $item->modifier_products = $item->modifier_products;
          });
          return $products;
      }
