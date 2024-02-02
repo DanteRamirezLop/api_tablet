@@ -14,7 +14,7 @@ class ProductController extends Controller
 
      public function __construct()
      {
-          $this->middleware('auth:api');
+           $this->middleware('auth:api');
         
      }
      
@@ -55,7 +55,9 @@ class ProductController extends Controller
     {
         $product->picture = config('services.trading.url').'/uploads/img/'.$product->image;
         $product->price = $product->variation->first()->sell_price_inc_tax;
+        $product->modifier_products = $product->modifier_products;
         return $product;
+        
     }
 
     /**
