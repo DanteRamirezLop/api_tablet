@@ -16,6 +16,7 @@ class TableController extends Controller
     
    public function index()
    {
+    dd(Table::all());
        return Table::all();
    }
 

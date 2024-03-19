@@ -9,6 +9,7 @@ use  Illuminate\Database\Eloquent\Builder;
 class Table extends Model
 {
     use HasFactory;
+    protected $table = "res_tables";
     protected $fillable = ['id','business_id','name','description'];
 
     protected static function booted()
