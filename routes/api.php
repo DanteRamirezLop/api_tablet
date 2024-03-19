@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\TransactionPaymentController;
 use App\Http\Controllers\Api\RoleController;
+use App\Http\Controllers\Api\TableController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -27,6 +28,7 @@ Route::apiResource('users',UserController::class)->names('api.users');
 Route::apiResource('transaction',TransactionPaymentController::class)->names('api.transactionPayment');
 Route::apiResource('tax',TransactionPaymentController::class)->names('api.tax');
 Route::apiResource('role',RoleController::class)->names('api.role');
+Route::apiResource('tables',TableController::class)->names('api.tables');
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 //     return $request->user();
