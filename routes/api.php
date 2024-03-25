@@ -9,6 +9,7 @@ use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\TransactionPaymentController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TableController;
+use App\Http\Controllers\Api\LoginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,6 +20,7 @@ use App\Http\Controllers\Api\TableController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::post('login',[LoginController::class,'store']);
 
 Route::apiResource('users',UserController::class)->names('api.users');
 Route::apiResource('categories',CatergoryController::class)->names('api.categories');
