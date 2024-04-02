@@ -9,7 +9,7 @@ use App\Http\Controllers\Api\UnitController;
 use App\Http\Controllers\Api\TransactionPaymentController;
 use App\Http\Controllers\Api\RoleController;
 use App\Http\Controllers\Api\TableController;
-use App\Http\Controllers\Api\LoginController;
+use App\Http\Controllers\Api\Auth\LoginController;
 /*
 |--------------------------------------------------------------------------
 | API Routes

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -12,6 +12,8 @@ use App\Http\Resources\UserResource;
 class LoginController extends Controller
 {
     public function store(Request $request){
+        // return response()->json(['msg'=>'dante'],200);
+
         $request->validate([
             'email' => 'required|string|email',
             'password' => 'required|string'
@@ -20,10 +22,10 @@ class LoginController extends Controller
         $user = User::where('email', $request->email)->firstOrFail();
 
         if (Hash::check($request->password, $user->password)) {
-            return parent::toArray($user);
+            return UserResource::make($user);
         }else{
             return response()->json(['message' => 'Email ó contraseña equivacada.'], 404);
         }
-
+    
     }
 }
